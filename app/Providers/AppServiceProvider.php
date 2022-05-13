@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Http\Repositories\Contracts\PostRepositoryContract;
+use App\Http\Repositories\PostRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->app->bind(PostRepositoryContract::class, PostRepository::class);
     }
 }
